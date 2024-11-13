@@ -3,5 +3,5 @@ Replica del popolarissimo videogioco Pong (1972), sviluppato da Atari, realizzat
 
 ### Crediti
 
-- Il progetto utilizza il font **Pong Game**, creato da **Modestype Studio** e rilasciato con licenza gratuita per uso personale.  
-Puoi trovare ulteriori informazioni sul font e sull'autore [qui](https://fontmeme.com/fonts/pong-game-font/).
+- Il progetto utilizza il font ***Pong Game***, creato da ***Modestype Studio*** e rilasciato con licenza gratuita per uso personale.
+Per informazioni sul font o sull'autore clicca [qui](https://fontmeme.com/fonts/pong-game-font/).
