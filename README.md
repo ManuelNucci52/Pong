@@ -7,4 +7,4 @@ Replica del popolarissimo videogioco Pong (1972), sviluppato da Atari, realizzat
   Per scaricare il font clicca [qui](https://fontmeme.com/fonts/pong-game-font/).
 - Il progetto utilizza musiche scaricabili gratuitamente da [Pixabay](https://pixabay.com) con licenza "royalty-free" (per ulteriori informazioni clicca [qui](https://pixabay.com/service/license-summary/)).
 - Il progetto utilizza effetti sonori provenienti dal pack ***Pong Softsynth***, creato da ***NoiseCollector*** e rilasciato con licenza Creative Commons BY 3.0.
-  Per visualizzare tutti gli effetti disponibili nel pack clicca [qui](https://freesound.org/people/NoiseCollector/packs/254/)
+  Per visualizzare tutti gli effetti disponibili nel pack clicca [qui](https://freesound.org/people/NoiseCollector/packs/254/).
