@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButtonBehaviour : MonoBehaviour
+public class PlayButtonController : MonoBehaviour
 {
     public void OnClick()
     {
