@@ -3,45 +3,43 @@ using UnityEngine;
 
 public class BallMovementController : MonoBehaviour
 {
-    [SerializeField] private int initialSpeed = 5;
+    [SerializeField] private int timeBeforeMove = 2;
+    [SerializeField] private int startSpeed = 5;
     [SerializeField] private float extraSpeedPerHit = 0.5f;
     [SerializeField] private int maxSpeed = 10;
 
     private Rigidbody2D _rb;
-    private float _speed;
-    private int _hitCount;
+    private float _currentSpeed;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        
-        StartCoroutine(StartBall());
+        StartCoroutine(Setup(GameController.RaffleReceivingPlayer()));
     }
     
-    private void ResetBall(bool turnPlayer1)
+    private void ResetPosition(int receivingPlayer)
     {
         _rb.linearVelocity = Vector2.zero;
-        _speed = initialSpeed;
-        _hitCount = -1;
-        transform.localPosition = turnPlayer1 ? Vector3.left : Vector3.right;
+        transform.localPosition = receivingPlayer == 2 ? Vector3.left : Vector3.right;
+        _currentSpeed = startSpeed;
     }
 
-    public IEnumerator StartBall(bool turnPlayer1 = true)
+    public IEnumerator Setup(int receivingPlayer)
     {
-        ResetBall(turnPlayer1);
+        ResetPosition(receivingPlayer);
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(timeBeforeMove);
         
-        MoveBall(turnPlayer1 ? Vector2.left : Vector2.right);
+        Move(receivingPlayer == 2 ? Vector2.left : Vector2.right);
     }
 
-    public void MoveBall(Vector2 direction)
+    public void Move(Vector2 direction)
     {
-        _speed += extraSpeedPerHit * ++_hitCount;
-        
-        if (_speed > maxSpeed)
-            _speed = maxSpeed;
-        
-        _rb.linearVelocity = direction.normalized * _speed;
+        _currentSpeed = Mathf.Clamp(_currentSpeed + extraSpeedPerHit, _currentSpeed, maxSpeed);
+        _rb.linearVelocity = direction.normalized * _currentSpeed;
     }
 }

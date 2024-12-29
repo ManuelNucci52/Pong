@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 272427191}
   - component: {fileID: 272427193}
   - component: {fileID: 272427192}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 327618599}
   - component: {fileID: 327618601}
   - component: {fileID: 327618600}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 403548498}
   - component: {fileID: 403548500}
   - component: {fileID: 403548499}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ScoreSeparator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,6 +897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813665572}
+  - component: {fileID: 813665573}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -923,6 +924,19 @@ Transform:
   - {fileID: 1156906238}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &813665573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813665571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39d43605be98f340953de8792dbd2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  racketSpeed: 4
 --- !u!1001 &1003033840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1123,7 +1137,7 @@ GameObject:
   - component: {fileID: 1108024633}
   - component: {fileID: 1108024635}
   - component: {fileID: 1108024634}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,7 +1305,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1140126999}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -1307,7 +1321,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 0
 --- !u!61 &1140127003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1366,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db7746c97fd06f41984c185d97ca574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  gameController: {fileID: 813665573}
 --- !u!1 &1156906237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1499,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &1156906241
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1496,7 +1510,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 0215be6e0f7eb0c429d15d4dea888686, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1534,7 +1548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1929133394b7a22468ad5bed8ae3b97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 5
+  timeBeforeMove: 2
+  startSpeed: 5
   extraSpeedPerHit: 0.5
   maxSpeed: 10
 --- !u!114 &1156906243
@@ -1549,7 +1564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fb682f6b3d95b44860b9bc4ed0276f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bmController: {fileID: 1156906242}
+  ballMovement: {fileID: 1156906242}
+  scoreController: {fileID: 1969427076}
   racketSound: {fileID: 8300000, guid: 2fd1b9cc2efec6d4b819cdab952e26d7, type: 3}
   wallSound: {fileID: 8300000, guid: 0ece64c4b81be0840a6a6a5c8ead8af8, type: 3}
 --- !u!82 &1156906244
@@ -1564,7 +1580,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1658,7 +1674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433678478}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1480457586}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1927,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1648037064}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -1927,7 +1943,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 0
 --- !u!61 &1648037068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1986,6 +2002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa9ccdb0328c9643b2ee4545fa75f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 813665573}
+  ball: {fileID: 1156906238}
+  minDistanceForMove: 0.5
 --- !u!1 &1678374172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +2014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1678374173}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2597,7 +2616,8 @@ GameObject:
   - component: {fileID: 1969427074}
   - component: {fileID: 1969427073}
   - component: {fileID: 1969427072}
-  m_Layer: 5
+  - component: {fileID: 1969427076}
+  m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2688,6 +2708,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1969427076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969427071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9ab35a78c487d4394b712653184993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Score: {fileID: 2108322871}
+  p2Score: {fileID: 1108024634}
+  scoreToWin: 5
+  timeBeforeGameOver: 1
 --- !u!1 &1997077981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,7 +2822,7 @@ GameObject:
   - component: {fileID: 2108322870}
   - component: {fileID: 2108322872}
   - component: {fileID: 2108322871}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}

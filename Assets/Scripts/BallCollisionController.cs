@@ -3,15 +3,16 @@ using UnityEngine.Audio;
 
 public class BallCollisionController : MonoBehaviour
 {
-    [SerializeField] private BallMovementController bmController;
+    [SerializeField] private BallMovementController ballMovement;
+    [SerializeField] private ScoreController scoreController;
     [SerializeField] private AudioResource racketSound;
     [SerializeField] private AudioResource wallSound;
 
-    private AudioSource _as;
+    private AudioSource _audioSource;
 
-    private void Start()
+    private void Awake()
     {
-        _as = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,35 +20,36 @@ public class BallCollisionController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Racket":
-                _as.resource = racketSound;
-                _as.Play();
-                bmController.MoveBall(GetBounceDirection(collision));
+                PlaySound(racketSound);
+                ballMovement.Move(GetBounceDirection(collision));
                 break;
             case "Point":
-                StartCoroutine(bmController.StartBall(transform.localPosition.x < 0));
+                scoreController.GivePoint(GetScoringPlayer());
+                StartCoroutine(ballMovement.Setup(GetScoringPlayer()));
                 break;
             case "Wall":
-                _as.resource = wallSound;
-                _as.Play();
+                PlaySound(wallSound);
                 break;
         }
+    }
+
+    private void PlaySound(AudioResource sound)
+    {
+        _audioSource.resource = sound;
+        _audioSource.Play();
     }
 
     private Vector2 GetBounceDirection(Collision2D collision)
     {
         var x = transform.localPosition.x < 0 ? 1 : -1;
-        
         var deltaY = transform.localPosition.y - collision.transform.localPosition.y;
-
-        deltaY = deltaY switch
-        {
-            > 1 => 1,
-            < -1 => -1,
-            _ => deltaY
-        };
-
-        var y = deltaY / collision.collider.bounds.extents.y;
+        var y = Mathf.Clamp(deltaY / collision.collider.bounds.extents.y, -1, 1);
 
         return new Vector2(x, y);
+    }
+
+    private int GetScoringPlayer()
+    {
+        return transform.localPosition.x > 0 ? 1 : 2;
     }
 }

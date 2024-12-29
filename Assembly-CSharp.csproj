@@ -46,10 +46,12 @@
     <Analyzer Include="E:\Programmi\Unity\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\PlayerTwoController.cs" />
     <Compile Include="Assets\Scripts\BallMovementController.cs" />
     <Compile Include="Assets\Scripts\PlayerOneController.cs" />
-    <Compile Include="Assets\Scripts\PlayButtonController.cs" />
+    <Compile Include="Assets\Scripts\ScoreController.cs" />
+    <Compile Include="Assets\Scripts\ButtonController.cs" />
     <Compile Include="Assets\Scripts\BallCollisionController.cs" />
     <Reference Include="UnityEngine">
       <HintPath>E:\Programmi\Unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
