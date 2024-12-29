@@ -7,7 +7,7 @@ public class ScoreController : MonoBehaviour
     [SerializeField] private Text p1Score;
     [SerializeField] private Text p2Score;
     [SerializeField] private int scoreToWin = 5;
-    [SerializeField] private float timeBeforeGameOver = 0.4f;
+    [SerializeField] private float timeBeforeGameOver = 0.9f;
 
     private int _p1Score;
     private int _p2Score;

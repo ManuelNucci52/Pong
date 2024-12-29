@@ -287,10 +287,9 @@ GameObject:
   m_Component:
   - component: {fileID: 819615111}
   - component: {fileID: 819615114}
-  - component: {fileID: 819615113}
   - component: {fileID: 819615112}
-  - component: {fileID: 819615115}
   - component: {fileID: 819615116}
+  - component: {fileID: 819615115}
   m_Layer: 0
   m_Name: Retry
   m_TagString: Untagged
@@ -358,7 +357,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 819615113}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -374,36 +373,6 @@ MonoBehaviour:
           m_StringArgument: GameWorld
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &819615113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819615110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &819615114
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -424,14 +393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059801ab33fde0245b592e4ab85ad89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultRGB:
-  - 255
-  - 255
-  - 255
   hoverRGB:
-  - 255
-  - 255
   - 153
+  - 153
+  - 255
 --- !u!114 &819615116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,8 +532,8 @@ GameObject:
   - component: {fileID: 1270260500}
   - component: {fileID: 1270260499}
   - component: {fileID: 1270260498}
-  - component: {fileID: 1270260497}
   - component: {fileID: 1270260501}
+  - component: {fileID: 1270260497}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -934,10 +899,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1761418144}
   - component: {fileID: 1761418147}
-  - component: {fileID: 1761418146}
   - component: {fileID: 1761418145}
-  - component: {fileID: 1761418148}
   - component: {fileID: 1761418149}
+  - component: {fileID: 1761418148}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -1005,7 +969,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1761418146}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1021,36 +985,6 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1761418146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761418143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1761418147
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1071,14 +1005,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059801ab33fde0245b592e4ab85ad89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultRGB:
-  - 255
-  - 255
-  - 255
   hoverRGB:
-  - 255
-  - 255
   - 153
+  - 153
+  - 255
 --- !u!114 &1761418149
 MonoBehaviour:
   m_ObjectHideFlags: 0

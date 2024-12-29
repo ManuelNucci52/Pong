@@ -4,7 +4,7 @@ public class PlayerTwoController : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
     [SerializeField] private Transform ball;
-    [SerializeField] private float minDistanceForMove = 0.5f;
+    [SerializeField] private float minDistanceForMove = 0.1f;
     
     private Rigidbody2D _rb;
     private bool _isTouchingWall;

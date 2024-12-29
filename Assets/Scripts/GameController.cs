@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private int racketSpeed = 4;
+    [SerializeField] private float racketSpeed = 4.5f;
     
-    public int RacketSpeed => racketSpeed;
+    public float RacketSpeed => racketSpeed;
     
     public static bool AreConcordant(float x, float y)
     {

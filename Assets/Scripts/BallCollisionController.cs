@@ -19,16 +19,16 @@ public class BallCollisionController : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "Racket":
-                PlaySound(racketSound);
-                ballMovement.Move(GetBounceDirection(collision));
-                break;
             case "Point":
                 scoreController.GivePoint(GetScoringPlayer());
                 StartCoroutine(ballMovement.Setup(GetScoringPlayer()));
                 break;
             case "Wall":
                 PlaySound(wallSound);
+                break;
+            case "Racket":
+                PlaySound(racketSound);
+                ballMovement.Move(GetBounceDirection(collision));
                 break;
         }
     }
@@ -42,8 +42,17 @@ public class BallCollisionController : MonoBehaviour
     private Vector2 GetBounceDirection(Collision2D collision)
     {
         var x = transform.localPosition.x < 0 ? 1 : -1;
+        
         var deltaY = transform.localPosition.y - collision.transform.localPosition.y;
-        var y = Mathf.Clamp(deltaY / collision.collider.bounds.extents.y, -1, 1);
+
+        deltaY = Mathf.Abs(deltaY) switch
+        {
+            > 1.141333f => Mathf.Sign(deltaY) * Mathf.Tan(Mathf.Deg2Rad * 67.5f),
+            > 1 and <= 1.141333f => Mathf.Sign(deltaY),
+            _ => deltaY
+        };
+
+        var y = deltaY / collision.collider.bounds.extents.y;
 
         return new Vector2(x, y);
     }

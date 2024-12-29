@@ -6,7 +6,7 @@ public class BallMovementController : MonoBehaviour
     [SerializeField] private int timeBeforeMove = 2;
     [SerializeField] private int startSpeed = 5;
     [SerializeField] private float extraSpeedPerHit = 0.5f;
-    [SerializeField] private int maxSpeed = 10;
+    [SerializeField] private int maxSpeed = 13;
 
     private Rigidbody2D _rb;
     private float _currentSpeed;
