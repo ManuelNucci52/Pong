@@ -1,38 +1,32 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
     [SerializeField] private Text p1Score;
     [SerializeField] private Text p2Score;
-    [SerializeField] private int scoreToWin = 5;
-    [SerializeField] private float timeBeforeGameOver = 0.9f;
+    [SerializeField] private GameController gameController;
 
     private int _p1Score;
     private int _p2Score;
     
-    private IEnumerator LoadGameOverScene()
+    private IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(timeBeforeGameOver);
+        yield return new WaitForSeconds(gameController.TimeBeforeGameOver);
         
-        ButtonController.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 
-    public void GivePoint(int scoringPlayer)
+    public void UpdateScore(int scoringPlayer)
     {
         if (scoringPlayer == 1)
-        {
-            _p1Score++;
-            p1Score.text = _p1Score.ToString();
-        }
+            p1Score.text = $"{++_p1Score}";
         else
-        {
-            _p2Score++;
-            p2Score.text = _p2Score.ToString();
-        }
+            p2Score.text = $"{++_p2Score}";
 
-        if ((_p1Score == scoreToWin) || (_p2Score == scoreToWin))
-            StartCoroutine(LoadGameOverScene());
+        if ((_p1Score == gameController.WinScore) || (_p2Score == gameController.WinScore))
+            StartCoroutine(EndGame());
     }
 }

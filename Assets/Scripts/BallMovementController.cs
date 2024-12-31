@@ -3,11 +3,8 @@ using UnityEngine;
 
 public class BallMovementController : MonoBehaviour
 {
-    [SerializeField] private int timeBeforeMove = 2;
-    [SerializeField] private int startSpeed = 5;
-    [SerializeField] private float extraSpeedPerHit = 0.5f;
-    [SerializeField] private int maxSpeed = 13;
-
+    [SerializeField] private GameController gameController;
+    
     private Rigidbody2D _rb;
     private float _currentSpeed;
 
@@ -18,28 +15,28 @@ public class BallMovementController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Setup(GameController.RaffleReceivingPlayer()));
+        StartCoroutine(Setup(PongUtils.RaffleStartingReceiver()));
     }
     
     private void ResetPosition(int receivingPlayer)
     {
         _rb.linearVelocity = Vector2.zero;
         transform.localPosition = receivingPlayer == 2 ? Vector3.left : Vector3.right;
-        _currentSpeed = startSpeed;
+        _currentSpeed = gameController.InitialBallSpeed;
     }
 
     public IEnumerator Setup(int receivingPlayer)
     {
         ResetPosition(receivingPlayer);
         
-        yield return new WaitForSeconds(timeBeforeMove);
+        yield return new WaitForSeconds(gameController.BallSleepTime);
         
         Move(receivingPlayer == 2 ? Vector2.left : Vector2.right);
     }
 
     public void Move(Vector2 direction)
     {
-        _currentSpeed = Mathf.Clamp(_currentSpeed + extraSpeedPerHit, _currentSpeed, maxSpeed);
+        _currentSpeed = Mathf.Clamp(_currentSpeed + gameController.BallSpeedBoost, _currentSpeed, gameController.MaxBallSpeed);
         _rb.linearVelocity = direction.normalized * _currentSpeed;
     }
 }

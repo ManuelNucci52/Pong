@@ -20,7 +20,7 @@ public class BallCollisionController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Point":
-                scoreController.GivePoint(GetScoringPlayer());
+                scoreController.UpdateScore(GetScoringPlayer());
                 StartCoroutine(ballMovement.Setup(GetScoringPlayer()));
                 break;
             case "Wall":

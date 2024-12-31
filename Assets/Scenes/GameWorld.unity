@@ -897,7 +897,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813665572}
-  - component: {fileID: 813665573}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -924,19 +923,6 @@ Transform:
   - {fileID: 1156906238}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &813665573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813665571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a39d43605be98f340953de8792dbd2e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  racketSpeed: 4.5
 --- !u!1001 &1003033840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,6 +1025,57 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6869779677972115168, guid: 38de90b6f060e3044bfa12a6f1716b5d, type: 3}
   m_PrefabInstance: {fileID: 1003033840}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1039918972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039918974}
+  - component: {fileID: 1039918973}
+  m_Layer: 0
+  m_Name: Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1039918973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039918972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39d43605be98f340953de8792dbd2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballSleepTime: 2
+  initialBallSpeed: 5
+  ballSpeedBoost: 0.5
+  maxBallSpeed: 13
+  racketSpeed: 4.5
+  winScore: 5
+  timeBeforeGameOver: 0.9
+--- !u!4 &1039918974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039918972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056509020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,7 +1417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db7746c97fd06f41984c185d97ca574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 813665573}
+  gameController: {fileID: 1039918973}
 --- !u!1 &1156906237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,10 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1929133394b7a22468ad5bed8ae3b97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeMove: 2
-  startSpeed: 5
-  extraSpeedPerHit: 0.5
-  maxSpeed: 13
+  gameController: {fileID: 1039918973}
 --- !u!114 &1156906243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,7 +1599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballMovement: {fileID: 1156906242}
-  scoreController: {fileID: 1969427076}
+  scoreController: {fileID: 1433678479}
   racketSound: {fileID: 8300000, guid: 2fd1b9cc2efec6d4b819cdab952e26d7, type: 3}
   wallSound: {fileID: 8300000, guid: 0ece64c4b81be0840a6a6a5c8ead8af8, type: 3}
 --- !u!82 &1156906244
@@ -1674,6 +1708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433678478}
+  - component: {fileID: 1433678479}
   m_Layer: 0
   m_Name: Overlay
   m_TagString: Untagged
@@ -1703,6 +1738,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1433678479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433678477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9ab35a78c487d4394b712653184993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Score: {fileID: 2108322871}
+  p2Score: {fileID: 1108024634}
+  gameController: {fileID: 1039918973}
 --- !u!1 &1480457585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,7 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa9ccdb0328c9643b2ee4545fa75f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 813665573}
+  gameController: {fileID: 1039918973}
   ball: {fileID: 1156906238}
   minDistanceForMove: 0.1
 --- !u!1 &1678374172
@@ -2615,7 +2665,6 @@ GameObject:
   - component: {fileID: 1969427075}
   - component: {fileID: 1969427074}
   - component: {fileID: 1969427073}
-  - component: {fileID: 1969427076}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2690,22 +2739,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1969427076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969427071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f9ab35a78c487d4394b712653184993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p1Score: {fileID: 2108322871}
-  p2Score: {fileID: 1108024634}
-  scoreToWin: 5
-  timeBeforeGameOver: 0.9
 --- !u!1 &1997077981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,5 +3044,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 120591991}
+  - {fileID: 1039918974}
   - {fileID: 1969427075}
   - {fileID: 813665572}

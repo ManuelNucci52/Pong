@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\PongUtils.cs" />
     <Compile Include="Assets\Scripts\PlayerTwoController.cs" />
     <Compile Include="Assets\Scripts\BallMovementController.cs" />
     <Compile Include="Assets\Scripts\PlayerOneController.cs" />

@@ -361,7 +361,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 819615115}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -393,10 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059801ab33fde0245b592e4ab85ad89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRGB:
-  - 153
-  - 153
-  - 255
+  text: {fileID: 1936876702}
+  hoverRGB: 9900000099000000ff000000
 --- !u!114 &819615116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,7 +971,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1761418148}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -1005,10 +1003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059801ab33fde0245b592e4ab85ad89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRGB:
-  - 153
-  - 153
-  - 255
+  text: {fileID: 1073262810}
+  hoverRGB: 9900000099000000ff000000
 --- !u!114 &1761418149
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class PlayerTwoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((Mathf.Abs(DeltaY()) < minDistanceForMove) || (_isTouchingWall && GameController.AreConcordant(DeltaY(), transform.localPosition.y)))
+        if ((Mathf.Abs(DeltaY()) < minDistanceForMove) || (_isTouchingWall && PongUtils.AreConcordant(DeltaY(), transform.localPosition.y)))
             _rb.linearVelocityY = 0;
         else
             _rb.linearVelocityY = Mathf.Sign(DeltaY()) * gameController.RacketSpeed;

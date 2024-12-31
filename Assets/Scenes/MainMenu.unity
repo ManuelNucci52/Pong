@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059801ab33fde0245b592e4ab85ad89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1125420219}
   hoverRGB: 9900000099000000ff000000
 --- !u!114 &1821202563
 MonoBehaviour:
