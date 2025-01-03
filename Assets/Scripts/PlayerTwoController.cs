@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerTwoController : MonoBehaviour
 {
-    [SerializeField] private GameController gameController;
     [SerializeField] private Transform ball;
-    [SerializeField] private float minDistanceForMove = 0.1f;
+    [SerializeField] private float maxDistanceFromBall = 0.1f;
+    [SerializeField] private GameController gameController;
     
     private Rigidbody2D _rb;
     private bool _isTouchingWall;
@@ -16,10 +16,12 @@ public class PlayerTwoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((Mathf.Abs(DeltaY()) < minDistanceForMove) || (_isTouchingWall && PongUtils.AreConcordant(DeltaY(), transform.localPosition.y)))
+        var deltaY = PongUtils.Delta("y", ball, transform).GetValueOrDefault();
+        
+        if ((Mathf.Abs(deltaY) < maxDistanceFromBall) || (_isTouchingWall && PongUtils.Concordant(deltaY, transform.localPosition.y)))
             _rb.linearVelocityY = 0;
         else
-            _rb.linearVelocityY = Mathf.Sign(DeltaY()) * gameController.RacketSpeed;
+            _rb.linearVelocityY = Mathf.Sign(deltaY) * gameController.RacketSpeed;
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -32,10 +34,5 @@ public class PlayerTwoController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
             _isTouchingWall = false;
-    }
-
-    private float DeltaY()
-    {
-        return ball.localPosition.y - transform.localPosition.y;
     }
 }

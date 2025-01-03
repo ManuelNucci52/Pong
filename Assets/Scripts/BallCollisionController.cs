@@ -19,16 +19,18 @@ public class BallCollisionController : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "Point":
-                scoreController.UpdateScore(GetScoringPlayer());
-                StartCoroutine(ballMovement.Setup(GetScoringPlayer()));
+            case "Racket":
+                PlaySound(racketSound);
+                ballMovement.Move(GetBounceDirection(collision));
                 break;
             case "Wall":
                 PlaySound(wallSound);
                 break;
-            case "Racket":
-                PlaySound(racketSound);
-                ballMovement.Move(GetBounceDirection(collision));
+            case "Point":
+                var scoringPlayer = PongUtils.ScoringPlayer(transform);
+                scoreController.UpdateScore(scoringPlayer);
+                StartCoroutine(ballMovement.SetupBall(scoringPlayer));
+                
                 break;
         }
     }
@@ -41,24 +43,13 @@ public class BallCollisionController : MonoBehaviour
 
     private Vector2 GetBounceDirection(Collision2D collision)
     {
-        var x = transform.localPosition.x < 0 ? 1 : -1;
+        var x = -Mathf.Sign(transform.localPosition.x);
         
-        var deltaY = transform.localPosition.y - collision.transform.localPosition.y;
-
-        deltaY = Mathf.Abs(deltaY) switch
-        {
-            > 1.141333f => Mathf.Sign(deltaY) * Mathf.Tan(Mathf.Deg2Rad * 67.5f),
-            > 1 and <= 1.141333f => Mathf.Sign(deltaY),
-            _ => deltaY
-        };
-
-        var y = deltaY / collision.collider.bounds.extents.y;
-
+        var deltaY = PongUtils.Delta("y", transform, collision.transform).GetValueOrDefault();
+        var rangeY = PongUtils.Extension("y", collision.collider).GetValueOrDefault();
+        
+        var y = deltaY / rangeY;
+        
         return new Vector2(x, y);
-    }
-
-    private int GetScoringPlayer()
-    {
-        return transform.localPosition.x > 0 ? 1 : 2;
     }
 }

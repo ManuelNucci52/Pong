@@ -14,7 +14,7 @@ public class PlayerOneController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isTouchingWall && PongUtils.AreConcordant(Input.GetAxisRaw("Vertical"), transform.localPosition.y))
+        if (_isTouchingWall && PongUtils.Concordant(Input.GetAxisRaw("Vertical"), transform.localPosition.y))
             _rb.linearVelocityY = 0;
         else
             _rb.linearVelocityY = Input.GetAxisRaw("Vertical") * gameController.RacketSpeed;

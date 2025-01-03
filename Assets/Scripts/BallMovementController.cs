@@ -15,19 +15,19 @@ public class BallMovementController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Setup(PongUtils.RaffleStartingReceiver()));
+        StartCoroutine(SetupBall(PongUtils.RaffleStartingReceiver()));
     }
     
-    private void ResetPosition(int receivingPlayer)
+    private void ResetBall(int receivingPlayer)
     {
         _rb.linearVelocity = Vector2.zero;
         transform.localPosition = receivingPlayer == 2 ? Vector3.left : Vector3.right;
         _currentSpeed = gameController.InitialBallSpeed;
     }
 
-    public IEnumerator Setup(int receivingPlayer)
+    public IEnumerator SetupBall(int receivingPlayer)
     {
-        ResetPosition(receivingPlayer);
+        ResetBall(receivingPlayer);
         
         yield return new WaitForSeconds(gameController.BallSleepTime);
         
@@ -36,7 +36,7 @@ public class BallMovementController : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        _currentSpeed = Mathf.Clamp(_currentSpeed + gameController.BallSpeedBoost, _currentSpeed, gameController.MaxBallSpeed);
+        _currentSpeed = PongUtils.Clamp(_currentSpeed + gameController.BallSpeedBoost, gameController.MaxBallSpeed);
         _rb.linearVelocity = direction.normalized * _currentSpeed;
     }
 }
