@@ -47,4 +47,11 @@ public static class PongUtils
     {
         return ball.localPosition.x > 0 ? 1 : 2;
     }
+
+    public static bool ShouldIgnoreCollision(CircleCollider2D ball, EdgeCollider2D racket)
+    {
+        return racket.transform.localPosition.x < 0 ?
+            (ball.transform.localPosition.x < (racket.transform.localPosition.x + racket.bounds.extents.x)) :
+            (ball.transform.localPosition.x > (racket.transform.localPosition.x - racket.bounds.extents.x));
+    }
 }
