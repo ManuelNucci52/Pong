@@ -94,9 +94,9 @@ public static class PongUtils
     /// <param name="ball">Object representing the ball</param>
     /// <param name="racket">Object representing colliding area of the racket</param>
     /// <returns>true if the ball may be squeezed by the racket, false otherwise</returns>
+    public static bool ShouldIgnoreCollision(Transform ball, EdgeCollider2D racket)
     {
-        return racket.transform.localPosition.x < 0 ?
-            (ball.transform.localPosition.x < (racket.transform.localPosition.x + racket.bounds.extents.x)) :
-            (ball.transform.localPosition.x > (racket.transform.localPosition.x - racket.bounds.extents.x));
+        return (ball.localPosition.y > (racket.transform.localPosition.y + racket.bounds.extents.y)) ||
+               (ball.localPosition.y < (racket.transform.localPosition.y - racket.bounds.extents.y));
     }
 }

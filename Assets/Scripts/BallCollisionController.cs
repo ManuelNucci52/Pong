@@ -9,19 +9,17 @@ public class BallCollisionController : MonoBehaviour
     [SerializeField] private AudioResource racketHit;
     [SerializeField] private AudioResource wallHit;
 
-    private CircleCollider2D _ball;
     private AudioSource _audioSource;
 
     private void Awake()
     {
-        _ball = GetComponent<CircleCollider2D>();
         _audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
     {
         foreach (var racket in rackets)
-            Physics2D.IgnoreCollision(_ball, racket, PongUtils.ShouldIgnoreCollision(_ball, racket));
+            Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), racket, PongUtils.ShouldIgnoreCollision(transform, racket));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
