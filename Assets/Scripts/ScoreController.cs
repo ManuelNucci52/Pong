@@ -12,6 +12,10 @@ public class ScoreController : MonoBehaviour
     private int _p1Score;
     private int _p2Score;
     
+    /// <summary>
+    /// Handles the end of the game
+    /// </summary>
+    /// <returns>Routine to be managed by the desired Coroutine</returns>
     private IEnumerator EndGame()
     {
         yield return new WaitForSeconds(gameController.TimeBeforeGameOver);
@@ -19,6 +23,10 @@ public class ScoreController : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+    /// <summary>
+    /// Updates current score of the players and launches ending scene if the game is over
+    /// </summary>
+    /// <param name="scoringPlayer">Number of player which scored in the last game round</param>
     public void UpdateScore(int scoringPlayer)
     {
         if (scoringPlayer == 1)

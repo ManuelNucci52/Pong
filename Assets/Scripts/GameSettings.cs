@@ -17,11 +17,38 @@ public class GameSettings : MonoBehaviour
     [Header("Scene")]
     [SerializeField] private float timeBeforeGameOver = 0.9f;
     
+    /// <summary>
+    /// Time before the start of a new game round
+    /// </summary>
     public int BallSleepTime => ballSleepTime;
+    
+    /// <summary>
+    /// Ball speed at the start of a new game round
+    /// </summary>
     public int InitialBallSpeed => initialBallSpeed;
+    
+    /// <summary>
+    /// Speed boost gained by ball for each racket hit
+    /// </summary>
     public float BallSpeedBoost => ballSpeedBoost;
+    
+    /// <summary>
+    /// Maximum possible speed of the ball
+    /// </summary>
     public int MaxBallSpeed => maxBallSpeed;
+    
+    /// <summary>
+    /// Speed at which players can move their racket
+    /// </summary>
     public float RacketSpeed => racketSpeed;
+    
+    /// <summary>
+    /// Score to be reached to win the game
+    /// </summary>
     public int WinScore => winScore;
+    
+    /// <summary>
+    /// Time before switching to game over scene
+    /// </summary>
     public float TimeBeforeGameOver => timeBeforeGameOver;
 }

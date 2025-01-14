@@ -44,12 +44,21 @@ public class BallCollisionController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Overwrites the current sound attached to audio source and plays it
+    /// </summary>
+    /// <param name="sound">Sound effect to be played</param>
     private void PlaySound(AudioResource sound)
     {
         _audioSource.resource = sound;
         _audioSource.Play();
     }
 
+    /// <summary>
+    /// Calculates bounce direction of the ball according to relative positions between racket and collision point
+    /// </summary>
+    /// <param name="collision">Object containing details about the retrieved collision</param>
+    /// <returns>2D vector representing the direction to be followed by ball</returns>
     private Vector2 GetBounceDirection(Collision2D collision)
     {
         var x = -Mathf.Sign(transform.localPosition.x);

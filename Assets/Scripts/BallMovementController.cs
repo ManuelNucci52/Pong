@@ -18,6 +18,10 @@ public class BallMovementController : MonoBehaviour
         StartCoroutine(SetupBall(PongUtils.RaffleStartingReceiver()));
     }
     
+    /// <summary>
+    /// Resets ball position and speed in order to start a new game round
+    /// </summary>
+    /// <param name="receivingPlayer">Number of player that will receive the ball in next round</param>
     private void ResetBall(int receivingPlayer)
     {
         _rb.linearVelocity = Vector2.zero;
@@ -25,6 +29,11 @@ public class BallMovementController : MonoBehaviour
         _currentSpeed = gameController.InitialBallSpeed;
     }
 
+    /// <summary>
+    /// Handles the start of a new round
+    /// </summary>
+    /// <param name="receivingPlayer">Number of player that will receive ball in next round</param>
+    /// <returns>Routine to be managed by the desired Coroutine</returns>
     public IEnumerator SetupBall(int receivingPlayer)
     {
         ResetBall(receivingPlayer);
@@ -34,6 +43,10 @@ public class BallMovementController : MonoBehaviour
         Move(receivingPlayer == 2 ? Vector2.left : Vector2.right);
     }
 
+    /// <summary>
+    /// Moves ball to a certain direction with the correct speed
+    /// </summary>
+    /// <param name="direction">2D vector representing the direction to be followed by ball</param>
     public void Move(Vector2 direction)
     {
         _currentSpeed = PongUtils.Clamp(_currentSpeed + gameController.BallSpeedBoost, gameController.MaxBallSpeed);
