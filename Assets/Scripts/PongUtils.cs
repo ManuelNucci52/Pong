@@ -37,7 +37,6 @@ public static class PongUtils
         {
             "x" => first.localPosition.x - second.localPosition.x,
             "y" => first.localPosition.y - second.localPosition.y,
-            "z" => first.localPosition.z - second.localPosition.z,
             _ => null
         };
     }
